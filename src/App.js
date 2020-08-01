@@ -1,26 +1,20 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import {Route, Switch} from 'react-router-dom'
+import Users from "./containers/Usres/Users"
+import About from "./components/About/About";
+import Layout from "./hoc/Layout/Layout"
+import СalendarContainer from "./containers/Сalendar/Сalendar";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const App = () => {
+    return (
+        <Layout>
+            <Switch>
+                <Route path={'/'} exact component={About}/>
+                <Route path={'/list'} component={Users}/>
+                <Route path={'/calendar'} component={СalendarContainer}/>
+            </Switch>
+        </Layout>
+    );
 }
 
 export default App;
